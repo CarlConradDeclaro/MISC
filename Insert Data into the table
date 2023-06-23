@@ -1,4 +1,4 @@
-// tbese are the components
+// these are the components
 //Step 1:
 
     @FXML      //<name of the class> fxId
@@ -12,6 +12,16 @@
 
 //Optional
 // If we want to make a initial Data for the table this is the code
+      ObservableList<Person> initialData(){
+      Person p1 = new Person("Carl","Declaro","Philippines");
+      Person p2 = new Person("Carl","Declaro","Philippines");
+      return FXCollections.observableArrayList(p1,p2);
+    }
+    
+
+
+//Step 2:
+
  @Override
     public void initialize(URL url, ResourceBundle rb) {
        firstName.setCellValueFactory(new PropertyValueFactory<Person,String>("firstName"));
@@ -21,7 +31,6 @@
     }    
 
 
-//Step 2:
 // the method ADD() contains codes on how to insert values to the table.
  @FXML
     private void ADD(ActionEvent event) { 
