@@ -1,0 +1,67 @@
+// tbese are the components
+//Step 1:
+
+    @FXML      //<name of the class> fxId
+    private TableView<Person> table;   
+    @FXML
+    private TableColumn<Person, String> lastName;
+    @FXML
+    private TableColumn<Person, String> origin;
+    @FXML
+    private TableColumn<Person, String> firstName;
+
+//Optional
+// If we want to make a initial Data for the table this is the code
+ @Override
+    public void initialize(URL url, ResourceBundle rb) {
+       firstName.setCellValueFactory(new PropertyValueFactory<Person,String>("firstName"));
+       lastName.setCellValueFactory(new PropertyValueFactory<Person,String>("lastName"));
+       origin.setCellValueFactory(new PropertyValueFactory<Person,String>("origin"));
+      // table.setItems(initialData());
+    }    
+
+
+//Step 2:
+// the method ADD() contains codes on how to insert values to the table.
+ @FXML
+    private void ADD(ActionEvent event) { 
+// Here are the codes to insert data to the table.
+         Person newData = new Person(txtName.getText(),txtMobile.getText(),txtCourse.getText());
+         table.getItems().add(newData);
+         txtName.clear();
+         txtMobile.clear();
+         txtCourse.clear();
+    }
+
+
+//Step 3
+// Create a Person class 
+package studentregistration; 
+
+public class Person{
+ private String firstName;
+  private String lastName;
+   private String origin;
+   
+   
+   public String getFirstName(){
+     return firstName; 
+   }
+   
+   public String getLastName(){
+     return lastName; 
+   }
+   public String getOrigin(){
+     return origin; 
+   }
+   
+   public Person(String firstName, String lastName,String origin){
+   this.firstName= firstName;
+   this.lastName=lastName;
+   this.origin=origin;  
+   }
+    
+}
+
+
+
