@@ -1,0 +1,15 @@
+// This is how we open a new window in FXML
+//import everything neccessary and in the .getResource("the fxml name");         
+
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));  
+            Parent rootl = (Parent)fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Second Stage");
+            stage.setScene(new Scene(rootl));
+            stage.show();
+            
+            
+            // Close the current stage
+           Stage currentStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+           currentStage.close();
